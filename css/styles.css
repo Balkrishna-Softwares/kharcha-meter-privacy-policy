@@ -1,0 +1,475 @@
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-color: #0c0a09; /* Very deep charcoal/black */
+  --card-bg: #1c1917; /* Slightly lighter than bg */
+  --card-border: rgba(255, 255, 255, 0.08); /* Faint glow border */
+  --text-primary: #f8fafc;
+  --text-secondary: #a8a29e;
+  --accent-color: #fca5a5; /* Soft peach/coral, like paisa-tracker */
+  --accent-hover: #f87171;
+  
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.75; /* Generous line height for readability */
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle glowing background orbs to mimic paisa-tracker's depth */
+body::before, body::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+body::before {
+  top: -10vw;
+  left: -10vw;
+  width: 40vw;
+  height: 40vw;
+  background-color: #3b82f6; /* Soft blue glow */
+}
+
+body::after {
+  bottom: -10vw;
+  right: -10vw;
+  width: 30vw;
+  height: 30vw;
+  background-color: var(--accent-color); /* Peach glow */
+}
+
+
+/* Header - Modern Glassmorphism */
+.app-header {
+  background-color: rgba(12, 10, 9, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--card-border);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space out logo and nav */
+}
+
+.header-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--text-primary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Desktop Nav inside Header */
+.header-nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.header-nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+}
+
+.header-nav a:hover {
+  color: var(--text-primary);
+}
+
+/* Updated Logo matching image 1 */
+.app-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px; /* Squircle */
+  object-fit: cover;
+  background-color: #ffffff; /* White background for logo */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255,255,255,0.1); 
+  padding: 3px;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.app-logo:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.app-subtitle {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* Top Navigation in Header (moved from inside card for a modern layout) */
+/* Because we can't change HTML, we will rely on the nav inside the card, 
+   but we will style it to look very modern. */
+
+
+/* Main Content Card (The dark sleek container) */
+.main-content {
+  max-width: 1200px; /* Constrained width like paisa-tracker */
+  margin: 2rem auto 0; /* Reduced to 0 at bottom */
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+.legal-content {
+  background-color: transparent;
+  border-radius: 0;
+  padding: 1rem 0 1rem; /* Reduced bottom padding from 4rem to 1rem */
+  box-shadow: none;
+  border: none;
+  position: relative;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Subtle gradient edge on the card */
+.legal-content::before {
+  display: none;
+}
+
+
+/* Legal Content Typography */
+.legal-content h1 {
+  font-size: 2.5rem; /* punchy headings */
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+/* For the specific privacy/terms headings to look more dynamic */
+.legal-content h1 b {
+  color: var(--accent-color);
+  font-weight: 800;
+}
+
+.legal-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 3.5rem; /* Generous vertical rhythm */
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.legal-content p {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+/* Bold text inside p tags should pop more */
+.legal-content p b, .legal-content li b {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.legal-content ul, .legal-content ol {
+  margin-bottom: 2.5rem;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.legal-content li {
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+.legal-content li::marker {
+  color: var(--accent-color);
+}
+
+.legal-content a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  border-bottom: 1px dashed rgba(252, 165, 165, 0.4);
+}
+
+.legal-content a:hover {
+  color: var(--accent-hover);
+  border-bottom-style: solid;
+}
+
+
+/* Download Section - Image 2 matching */
+.legal-content .download-section {
+  margin-top: 5rem;
+  text-align: center;
+  padding-top: 3rem;
+  border-top: 1px solid var(--card-border);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Optional text above download button, generated via pseudo-element 
+   since we can't change HTML text */
+.legal-content .download-section::before {
+  content: "Take Control of Your Finances";
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+/* Replaces old green button with the sleek Google Play icon (Image 2) */
+.legal-content .playstore-btn {
+  display: inline-block;
+  width: 200px; /* Slightly smaller for elegance */
+  height: 58px;
+  /* Premium official SVGs for crisp text */
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  /* Hide the old text, keep it accessible */
+  color: transparent !important;
+  text-indent: -9999px;
+  overflow: hidden;
+  white-space: nowrap;
+  
+  /* Reset previous styling */
+  background-color: transparent;
+  padding: 0;
+  border-radius: 8px; /* For the focus state */
+  box-shadow: none;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.25s;
+}
+
+.legal-content .playstore-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  border-bottom: none; /* remove global link border hover */
+}
+
+
+/* Footer strictly minimal like modern apps */
+.app-footer {
+  background-color: transparent;
+  padding: 3rem 0 4rem;
+  border-top: 1px solid var(--card-border);
+  margin-top: 0; /* Removed massive 6rem margin pulling footer way down */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-brand {
+  font-weight: 800;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Adding tiny logo to footer via CSS to look premium */
+.footer-brand::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border-radius: 6px;
+  background-image: url('../assets/app-logo.png'); /* Assume they supply it later */
+  background-size: cover;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--text-primary);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .legal-content {
+    padding: 1rem 0 1rem;
+    border-radius: 0;
+  }
+  
+  .legal-content h1 {
+    font-size: 1.75rem;
+  }
+  
+  .legal-content h2 {
+    font-size: 1.35rem;
+    margin-top: 2.5rem;
+  }
+
+  .legal-content p, .legal-content ul, .legal-content ol {
+    font-size: 1rem;
+  }
+  
+  .app-title {
+    font-size: 1.25rem;
+  }
+
+  .app-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  /* Mobile Menu Styles */
+  .menu-toggle {
+    display: flex;
+  }
+
+  .header-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--card-bg); /* Opaque background */
+    border-top: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 0;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+  }
+
+  .header-nav.active {
+    display: flex;
+  }
+  
+  .header-nav a {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .header-nav a:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  /* Hamburger Menu Animation */
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+  
+  .legal-content .download-section::before {
+    font-size: 1.5rem;
+  }
+  
+  .legal-content img, .legal-content table, .legal-content code {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+  }
+  .app-title {
+    font-size: 1.15rem;
+  }
+  .header-container {
+    gap: 0.75rem;
+  }
+}

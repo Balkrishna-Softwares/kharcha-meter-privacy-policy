@@ -49,58 +49,38 @@
   }
   </script>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px;
-      max-width: 800px;
-    }
-
-    h1,
-    h2,
-    h3 {
-      color: #2D68C4;
-    }
-
-    nav a {
-      margin-right: 15px;
-      text-decoration: none;
-      color: #008000;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .download-section {
-      margin-top: 30px;
-    }
-
-    .playstore-btn {
-      display: inline-block;
-      background-color: #34A853;
-      color: white;
-      padding: 12px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-
-    .playstore-btn:hover {
-      background-color: #2c8e46;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/app-logo.png">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-  <nav>
-    <a href="index.html">About</a>
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <a href="terms-and-conditions.html">Terms & Conditions</a>
-  </nav>
+  <header class="app-header">
+    <div class="header-container">
+      <div class="header-logo-section">
+        <img src="assets/app-logo.png" alt="Kharcha Meter Logo" class="app-logo">
+        <div class="header-text">
+          <div class="app-title">Kharcha Meter</div>
+          <div class="app-subtitle">Daily Expense Tracker & Money Manager App</div>
+        </div>
+      </div>
+      <div class="menu-toggle" onclick="this.classList.toggle('active'); document.querySelector('.header-nav').classList.toggle('active')">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html">About</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="legal-content">
 
   <h1>📱 About Kharcha Meter</h1>
 
@@ -148,6 +128,19 @@
       📥 Download Kharcha Meter on Google Play
     </a>
   </div>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">Kharcha Meter</div>
+      <div class="footer-links">
+        <a href="index.html">About Us</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms & Conditions</a>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
