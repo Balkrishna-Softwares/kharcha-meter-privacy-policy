@@ -51,94 +51,304 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="assets/app-logo.png">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+  <!-- Glowing Background Effects -->
+  <div class="bg-glow-container">
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+  </div>
+
   <header class="app-header">
     <div class="header-container">
-      <div class="header-logo-section">
+      <a href="index.html" class="header-logo-section">
         <img src="assets/app-logo.png" alt="Kharcha Meter Logo" class="app-logo">
         <div class="header-text">
           <div class="app-title">Kharcha Meter</div>
-          <div class="app-subtitle">Daily Expense Tracker & Money Manager App</div>
+          <div class="app-subtitle">Daily Expense Tracker</div>
         </div>
-      </div>
+      </a>
       <div class="menu-toggle" onclick="this.classList.toggle('active'); document.querySelector('.header-nav').classList.toggle('active')">
         <span></span>
         <span></span>
         <span></span>
       </div>
       <nav class="header-nav">
-        <a href="index.html">About</a>
+        <a href="index.html" class="active-link">About</a>
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms-and-conditions.html">Terms & Conditions</a>
       </nav>
     </div>
   </header>
 
-  <main class="main-content">
-    <div class="legal-content">
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-tagline">Privacy-First Money Manager</div>
+        <h1 class="hero-title">Manage daily expenses <span>simply and securely</span></h1>
+        <p class="hero-description">
+          Welcome to <b>Kharcha Meter</b> – your simple and smart daily expense tracking app. 
+          Managing expenses can be tricky, but Kharcha Meter makes it easy, fast, and stress-free. 
+          Record your daily <i>kharcha</i> with an offline money manager that values your privacy.
+        </p>
+        <div class="download-badges">
+          <a href="https://play.google.com/store/apps/details?id=com.kharchameter.balkrishna" target="_blank" class="badge-btn primary-btn">
+            <!-- Inline Google Play SVG -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px;">
+              <path d="M5.00016 3.09033C4.81016 3.28033 4.7002 3.61033 4.7002 4.02033V20.0003C4.7002 20.4103 4.81016 20.7303 5.00016 20.9203L5.07016 20.9803L14.0302 12.0203V11.9703L5.07016 3.01033L5.00016 3.09033Z" fill="currentColor"/>
+              <path d="M17.0002 14.9903L14.0302 12.0203L14.0302 11.9703L17.0002 9.00033L17.0802 9.05033L20.6002 11.0503C21.6002 11.6203 21.6002 12.3803 20.6002 12.9503L17.0802 14.9503L17.0002 14.9903Z" fill="currentColor"/>
+              <path d="M14.0302 12.0203L5.0002 20.9203C5.3002 21.2403 5.8102 21.2603 6.4002 20.9203L17.0002 14.9903L14.0302 12.0203Z" fill="currentColor"/>
+              <path d="M14.0302 11.9703L17.0002 9.00033L6.4002 3.07033C5.8102 2.73033 5.3002 2.75033 5.0002 3.07033L14.0302 11.9703Z" fill="currentColor"/>
+            </svg>
+            <div class="badge-text">
+              <span class="badge-subtitle">GET IT ON</span>
+              <span class="badge-title">Google Play</span>
+            </div>
+          </a>
 
-  <h1>📱 About Kharcha Meter</h1>
+        </div>
+      </div>
+      
+      <!-- CSS Device Mockup -->
+      <div class="mockup-container">
+        <div class="smartphone">
+          <div class="app-screen">
+            <div class="app-screen-header">
+              <div class="app-screen-title">
+                <img src="assets/app-logo.png" alt="KM Logo">
+                <span>Kharcha Meter</span>
+              </div>
+              <div style="font-size: 0.65rem; opacity: 0.6; font-weight: 500;">📅 Today</div>
+            </div>
+            
+            <div class="screen-balance-card">
+              <div class="screen-balance-label">Total Balance</div>
+              <div class="screen-balance-value">₹12,450.00</div>
+              <div class="screen-balance-sub">
+                <span>Income: ₹25,000</span>
+                <span>Expenses: ₹12,550</span>
+              </div>
+            </div>
+            
+            <div class="screen-limit-section">
+              <div class="screen-limit-header">
+                <span>Monthly Budget Limit</span>
+                <span>62% Used</span>
+              </div>
+              <div class="screen-limit-bar">
+                <div class="screen-limit-progress"></div>
+              </div>
+            </div>
+            
+            <div class="screen-transactions">
+              <div class="screen-section-title">Recent Kharcha</div>
+              
+              <div class="screen-txn-item">
+                <div class="screen-txn-left">
+                  <div class="screen-txn-icon">🍔</div>
+                  <div class="screen-txn-details">
+                    <span class="screen-txn-name">Food & Dinner</span>
+                    <span class="screen-txn-cat">Food</span>
+                  </div>
+                </div>
+                <div class="screen-txn-amount">-₹250</div>
+              </div>
+              
+              <div class="screen-txn-item">
+                <div class="screen-txn-left">
+                  <div class="screen-txn-icon orange">🚗</div>
+                  <div class="screen-txn-details">
+                    <span class="screen-txn-name">Taxi Ride (Uber)</span>
+                    <span class="screen-txn-cat">Travel</span>
+                  </div>
+                </div>
+                <div class="screen-txn-amount">-₹120</div>
+              </div>
+              
+              <div class="screen-txn-item">
+                <div class="screen-txn-left">
+                  <div class="screen-txn-icon mint">💰</div>
+                  <div class="screen-txn-details">
+                    <span class="screen-txn-name">Freelance Work</span>
+                    <span class="screen-txn-cat">Income</span>
+                  </div>
+                </div>
+                <div class="screen-txn-amount income">+₹5,000</div>
+              </div>
+            </div>
+            
+            <div class="screen-add-btn">+</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <p>Welcome to <b>Kharcha Meter</b> – your simple and smart daily expense tracking app.</p>
-  <p>Managing expenses can be tricky, but Kharcha Meter makes it easy, fast, and stress-free.
-    The app is designed for anyone who wants to record daily <i>kharcha</i> (expenses) in the most convenient way.</p>
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-label">Core Features</span>
+          <h2 class="section-title">Everything you need to master your kharcha</h2>
+        </div>
+        
+        <div class="features-grid">
+          <!-- Quick Expense Entry -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Quick Expense Entry</h3>
+            <p class="feature-card-desc">Add your daily expenses in just a few taps. Simple, lightweight, and streamlined to minimize typing and maximize convenience.</p>
+          </div>
+          
+          <!-- 100% Local & Private -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">100% Local & Private</h3>
+            <p class="feature-card-desc">All your data is saved securely on your device only. No signup, no internet connection required for core features, and no expense sharing.</p>
+          </div>
+          
+          <!-- Category-based Tracking -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21.21 15.89A10 10 0 1 1 8 2.83M22 12A10 10 0 0 0 12 2V12Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Category-based Tracking</h3>
+            <p class="feature-card-desc">Organize your expenses into customized categories like Food, Travel, Shopping, Bills, and more to see where your money goes.</p>
+          </div>
+          
+          <!-- CSV & PDF Exports -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15M17 8L12 3L7 8M12 3V15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">CSV & PDF Exports</h3>
+            <p class="feature-card-desc">Easily export your transaction logs to Excel-friendly CSV spreadsheets or professionally structured PDF reports directly from the app.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <h2>✨ What Kharcha Meter Provides</h2>
-  <ul>
-    <li>📝 <b>Quick Expense Entry</b> – Add your daily expenses in just a few taps.</li>
-    <li>📊 <b>Local Storage Only</b> – All your data is saved securely on your device only. No signup, no internet
-      required for core features, and no expense data sharing.</li>
-    <li>🔍 <b>Category-based Tracking</b> – Organize your expenses into categories like Food, Travel, Shopping, and
-      more.</li>
-    <li>🎯 <b>Simple & User-Friendly</b> – Clean design with easy navigation for a smooth experience.</li>
-    <li>🔒 <b>Privacy First</b> – Since everything is stored locally, your expense data remains private and accessible
-      only on your device.</li>
-  </ul>
+    <!-- FAQ Section (Preserving all original content) -->
+    <section class="faq-section">
+      <div class="section-header">
+        <span class="section-label">Questions & Answers</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      
+      <div class="faq-list">
+        <!-- FAQ 1 -->
+        <details class="faq-item" open>
+          <summary>Is my data secure in Kharcha Meter?</summary>
+          <div class="faq-content">
+            <p>Yes. <b>Kharcha Meter</b> is built on local-only database architecture. All your transaction records remain stored securely in the app database on your physical device. There is no cloud storage, no account signup, and no data tracking. We have no access to your financial logs.</p>
+          </div>
+        </details>
+        
+        <!-- FAQ 2 -->
+        <details class="faq-item">
+          <summary>What diagnostic data does the app collect?</summary>
+          <div class="faq-content">
+            <p>To identify bugs and maintain app reliability, the App uses limited third-party services provided by Google Firebase:</p>
+            <ul>
+              <li><strong>Firebase Analytics:</strong> Tracks anonymous features usage insights (e.g. screen transitions) to improve user flows. No transaction logs or values are ever sent.</li>
+              <li><strong>Firebase Crashlytics:</strong> Monitors software crashes to report diagnostic details (OS version, device model) to developers for patching.</li>
+              <li><strong>Firebase Remote Config:</strong> Handles settings config like triggering mandatory app updates.</li>
+            </ul>
+          </div>
+        </details>
+        
+        <!-- FAQ 3 -->
+        <details class="faq-item">
+          <summary>Why choose Kharcha Meter over cloud-connected trackers?</summary>
+          <div class="faq-content">
+            <p>Kharcha Meter offers distinct advantages for users who value simplicity and data privacy:</p>
+            <ul>
+              <li>Perfect for anyone who wants a lightweight, offline expense manager.</li>
+              <li>Helps you stay aware of your daily spending habits.</li>
+              <li>No ads, no distractions – just pure tracking made easy.</li>
+              <li>Designed with privacy and simplicity in mind.</li>
+            </ul>
+          </div>
+        </details>
+        
+        <!-- FAQ 4 -->
+        <details class="faq-item">
+          <summary>Why does the app prompt for updates?</summary>
+          <div class="faq-content">
+            <p>To ensure security compatibility, overall stability, and an <b>improved loading experience</b>, the app may occasionally prompt you to download mandatory updates from the Google Play Store.</p>
+          </div>
+        </details>
+      </div>
+    </section>
 
-  <h2>🚀 App Reliability & Improvements</h2>
-  <ul>
-    <li>⚙️ <b>App Stability Monitoring</b> – The app uses crash monitoring tools to detect technical issues and improve
-      stability.</li>
-    <li>📈 <b>Anonymous Usage Insights</b> – Limited anonymous usage analytics may be collected to help improve the app
-      experience. No personal or financial data is collected.</li>
-    <li>🔄 <b>Mandatory Updates</b> – Occasionally the app may require an update from the Google Play Store to ensure
-      security, stability, and compatibility.</li>
-    <li>✨ <b>Improved Loading Experience</b> – Smooth loading indicators provide a better user experience when viewing
-      data.</li>
-  </ul>
-
-  <h2>💡 Why Choose Kharcha Meter?</h2>
-  <ul>
-    <li>Perfect for anyone who wants a lightweight, offline expense manager.</li>
-    <li>Helps you stay aware of your daily spending habits.</li>
-    <li>No ads, no distractions – just pure tracking made easy.</li>
-    <li>Designed with privacy and simplicity in mind.</li>
-  </ul>
-
-  <p>Kharcha Meter is here to help you stay in control of your daily <i>kharcha</i> with simplicity and privacy.</p>
-
-  <div class="download-section">
-    <a href="https://play.google.com/store/apps/details?id=com.kharchameter.balkrishna" target="_blank"
-      class="playstore-btn">
-      📥 Download Kharcha Meter on Google Play
-    </a>
-  </div>
-    </div>
+    <!-- CTA Section -->
+    <section class="cta-banner">
+      <div class="cta-box">
+        <h2 class="cta-title">Start Tracking Simply and Privately</h2>
+        <p class="cta-desc">Kharcha Meter is here to help you stay in control of your daily <i>kharcha</i> with simplicity and privacy. Download today and start tracking instantly.</p>
+        <div class="download-badges">
+          <a href="https://play.google.com/store/apps/details?id=com.kharchameter.balkrishna" target="_blank" class="badge-btn primary-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px;">
+              <path d="M5.00016 3.09033C4.81016 3.28033 4.7002 3.61033 4.7002 4.02033V20.0003C4.7002 20.4103 4.81016 20.7303 5.00016 20.9203L5.07016 20.9803L14.0302 12.0203V11.9703L5.07016 3.01033L5.00016 3.09033Z" fill="currentColor"/>
+              <path d="M17.0002 14.9903L14.0302 12.0203L14.0302 11.9703L17.0002 9.00033L17.0802 9.05033L20.6002 11.0503C21.6002 11.6203 21.6002 12.3803 20.6002 12.9503L17.0802 14.9503L17.0002 14.9903Z" fill="currentColor"/>
+              <path d="M14.0302 12.0203L5.0002 20.9203C5.3002 21.2403 5.8102 21.2603 6.4002 20.9203L17.0002 14.9903L14.0302 12.0203Z" fill="currentColor"/>
+              <path d="M14.0302 11.9703L17.0002 9.00033L6.4002 3.07033C5.8102 2.73033 5.3002 2.75033 5.0002 3.07033L14.0302 11.9703Z" fill="currentColor"/>
+            </svg>
+            <div class="badge-text">
+              <span class="badge-subtitle">GET IT ON</span>
+              <span class="badge-title">Google Play</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="app-footer">
     <div class="footer-container">
-      <div class="footer-brand">Kharcha Meter</div>
-      <div class="footer-links">
-        <a href="index.html">About Us</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="terms-and-conditions.html">Terms & Conditions</a>
+      <div class="footer-brand-section">
+        <a href="index.html" class="footer-logo-wrap">
+          <img src="assets/app-logo.png" alt="Kharcha Meter Logo" class="footer-logo">
+          <span class="footer-brand">Kharcha Meter</span>
+        </a>
+        <p class="footer-desc">Your simple, privacy-focused daily money manager. Record transactions and check category limits offline.</p>
       </div>
+      
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">Legal Links</h4>
+        <div class="footer-links">
+          <a href="index.html">About Us</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-and-conditions.html">Terms & Conditions</a>
+        </div>
+      </div>
+      
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">Contact Us</h4>
+        <div class="footer-contact-info">
+          <p>Have questions or feedback? Feel free to reach out:</p>
+          <a href="mailto:balkrishnasoftwares@gmail.com">📧 balkrishnasoftwares@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="copyright">Copyright &copy; 2026 Balkrishna Softwares. All rights reserved.</div>
     </div>
   </footer>
 </body>
